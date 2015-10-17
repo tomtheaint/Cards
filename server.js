@@ -12,7 +12,7 @@ var clients = {};
 var Eureca = require('eureca.io');
 
 //create an instance of EurecaServer
-var eurecaServer = new Eureca.Server({allow:['setId', 'spawnEnemy', 'kill', 'updateState']});
+var eurecaServer = new Eureca.Server({allow:['setId', 'spawnChips', 'kill', 'updateState']});
 
 //attach eureca.io to our http server
 eurecaServer.attach(server);
@@ -68,7 +68,7 @@ eurecaServer.exports.handshake = function()
 			var x = clients[cc].laststate ? clients[cc].laststate.x:  0;
 			var y = clients[cc].laststate ? clients[cc].laststate.y:  0;
 
-			remote.spawnEnemy(clients[cc].id, x, y);		
+			remote.spawnChips(clients[cc].id, x, y);		
 		}
 	}
 }
