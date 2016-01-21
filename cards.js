@@ -82,17 +82,6 @@ Card = function (name) {
 	var y = 0;
 	var cardImage;
 
-	//cardImage = game.add.sprite(400, 200, 'ace');
-	//cardImage.scale.setTo(.1,.1);
-	//cardImage.inputEnabled = true;
-	//cardImage.input.enableDrag();
-
-	//cardImage = game.add.bitmapData(100,100);
-	
-	//cardImage.fill(10,0,0,1);
-	
-	//cardImage.addToWorld(200,200);
-	
 	var imageGroup;
 	var imageText;
 	
@@ -106,10 +95,7 @@ Card = function (name) {
     graphic.lineTo(0, 0);
     graphic.endFill();
 	
-	
-	
 	imageText = game.add.text(25,25,cName,{font:"bold 20px Arial",fill:"#000"});
-	
 	
 	cardImage = game.add.sprite(200,200, graphic.generateTexture());
 	cardImage.addChild(imageText);
@@ -165,23 +151,9 @@ for (y = 0; y <= WORLDY; y++) {
 };
 
 Hex = function () {
-	
-	
 	var x = 0;
 	var y = 0;
-	
 
-	//cardImage = game.add.sprite(400, 200, 'ace');
-	//cardImage.scale.setTo(.1,.1);
-	//cardImage.inputEnabled = true;
-	//cardImage.input.enableDrag();
-
-	//cardImage = game.add.bitmapData(100,100);
-	
-	//cardImage.fill(10,0,0,1);
-	
-	//cardImage.addToWorld(200,200);
-	
 	var imageGroup;
 	
 	var cardImage;
@@ -283,24 +255,9 @@ createChip = function () {
 	var x = 0;
 	var y = 0;
 	var cardImage;
-
-	//cardImage = game.add.sprite(400, 200, 'ace');
-	//cardImage.scale.setTo(.1,.1);
-	//cardImage.inputEnabled = true;
-	//cardImage.input.enableDrag();
-
-	//cardImage = game.add.bitmapData(100,100);
-	
-	//cardImage.fill(10,0,0,1);
-	
-	//cardImage.addToWorld(200,200);
 	
 	var imageGroup;
 	var statText,imageText2,imageText3;
-	
-
-	//this.chip = game.add.sprite(0, 0, 'mmc');
-	//this.chip2.anchor.set(0);
 
 	
 	var graphic = game.add.graphics(-300,-300);
@@ -344,18 +301,7 @@ createChip = function () {
 	cardImage.addChild(imageText3);
 	cardImage.addChild(imageText3);
 	
-	
-	
-	
-	
-	//cardImage.anchor.setTo(0,0);
-	
-	//cardImage.inputEnabled = true;
-	//cardImage.input.enableDrag();
-	//cardImage.input.enableSnap(5,5,false,true);
 	return cardImage;
-	//cardImage.scale(.5,.5);
-	//cardImage.events.onDragStop.add(report, this);
 	
 };
 
@@ -525,7 +471,7 @@ function setStage(){
 function create () {
 
     setStage();
-    markerList = {};
+    //markerList = {};
     chipList = {};
 	
 	player = new Chip2(myId, game, chip2);
@@ -537,30 +483,6 @@ function create () {
 	chip2.inputEnabled = true;
 	chip2.input.enableDrag();
 	chip2.bringToTop();	
-	
-	
-	//var player2 = new Chip3();
-	
-	//chipList[myId] = player;
-	//chip3 = player.chip3;
-	//.x=0;
-	//chip3.y=0;
-	//player2.inputEnabled = true;
-	//player2.input.enableDrag();
-	//player2.bringToTop();	
-	
-	//var art, txt;
-	//txt = game.add.text(0,0,"hi all");
-	//art = game.add.sprite(50,50,'mmc');
-	//art.addChild(txt);
-	//art.bringToTop();
-	//player = new Chip3(myId, game, chip3);
-	//var adsfsd = new Chip3();
-	//var asdf = new chip3();
-	//chip3.bringToTop();	
-	//player = new Chip(game.rnd.integerInRange(2, 8),game.rnd.integerInRange(2, 8),game.rnd.integerInRange(2, 8),game.rnd.integerInRange(0, 1), "0x0099ff");
-	//chipList[myId] = player;
-	
 	
 	
     logo = game.add.sprite(300, 300, 'logo');
@@ -576,13 +498,6 @@ function create () {
 	
 	setTimeout(removeLogo, 1000);
 
-	for (var i = 0; i<0; i++){
-		var hex1 = new Chip(game.rnd.integerInRange(2, 8),game.rnd.integerInRange(2, 8),game.rnd.integerInRange(2, 8),game.rnd.integerInRange(0, 1), "0x0099ff");
-	}
-	for (var i = 0; i<0; i++){
-		var hex1 = new Chip(game.rnd.integerInRange(2, 8),game.rnd.integerInRange(2, 8),game.rnd.integerInRange(2, 8),game.rnd.integerInRange(0, 1), "0x66cc66");
-	}
-	//eurecaServer.testText();
 }
 
 function removeLogo () {
@@ -625,6 +540,4 @@ function update () {
     }
 }
 
-
 function render () {}
-

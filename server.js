@@ -8,15 +8,17 @@ app.use(express.static(__dirname));
 //we'll keep clients data here
 var clients = {};
   
+var markerList = {};
+//markerList = ['Marker 1', 'Marker 2', 'Marker 3']; 
+
 //get EurecaServer class
 var Eureca = require('eureca.io');
 
 //create an instance of EurecaServer
-var eurecaServer = new Eureca.Server({allow:['setId', 'spawnChips', 'kill', 'updateState']});
+var eurecaServer = new Eureca.Server({allow:['addMarker', 'setId', 'spawnChips', 'kill', 'updateState']});
 
 //attach eureca.io to our http server
 eurecaServer.attach(server);
-
 
 
 
@@ -27,12 +29,23 @@ eurecaServer.onConnect(function (conn) {
     console.log('New Client id=%s ', conn.id, conn.remoteAddress);
 	//the getClient method provide a proxy allowing us to call remote client functions
     var remote = eurecaServer.getClient(conn.id);    
-	
+	//console.log(markerList[0]);
 	//register the client
-	clients[conn.id] = {id:conn.id, remote:remote}
+	clients[conn.id] = {id:conn.id, remote:remote};
 	
 	//here we call setId (defined in the client side)
 	remote.setId(conn.id);	
+	
+
+	//console.log(markerList);
+
+	
+});
+
+eurecaServer.exports.addMarker = (function(id){
+	
+	//markerList[id] = {id};
+	
 });
 
 eurecaServer.exports.testText = function(){
